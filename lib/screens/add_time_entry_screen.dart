@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
-import '../provider/time_tracker_provider.dart';
+import '../provider/time_entry_provider.dart';
 import '../models/time_entry.dart';
 import '../models/project.dart';
 import '../models/task_item.dart';
 
-class AddTimeScreen extends StatefulWidget {
-  const AddTimeScreen({super.key});
+class AddTimeEntryScreen extends StatefulWidget {
+  const AddTimeEntryScreen({super.key});
 
   @override
-  State<AddTimeScreen> createState() => _AddTimeScreenState();
+  State<AddTimeEntryScreen> createState() => _AddTimeEntryScreenState();
 }
 
-class _AddTimeScreenState extends State<AddTimeScreen> {
+class _AddTimeEntryScreenState extends State<AddTimeEntryScreen> {
   final _formKey = GlobalKey<FormState>();
 
   Object? _selectedProjectId;
@@ -53,7 +53,7 @@ class _AddTimeScreenState extends State<AddTimeScreen> {
         return;
       }
 
-      final provider = Provider.of<TimeTrackerProvider>(context, listen: false);
+      final provider = Provider.of<TimeEntryProvider>(context, listen: false);
       final newEntry = TimeEntry(
         id: DateTime.now().millisecondsSinceEpoch.toString(), // simple unique id generator
         projectId: _selectedProjectId!,
@@ -70,7 +70,7 @@ class _AddTimeScreenState extends State<AddTimeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<TimeTrackerProvider>(context);
+    final provider = Provider.of<TimeEntryProvider>(context);
     final projects = provider.projects;
     final tasks = provider.tasks;
 

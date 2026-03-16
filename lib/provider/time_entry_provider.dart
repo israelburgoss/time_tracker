@@ -5,7 +5,7 @@ import '../models/project.dart';
 import '../models/task_item.dart';
 import '../models/time_entry.dart';
 
-class TimeTrackerProvider with ChangeNotifier {
+class TimeEntryProvider with ChangeNotifier {
   List<Project> _projects = [];
   List<TaskItem> _tasks = [];
   List<TimeEntry> _entries = [];
@@ -14,7 +14,7 @@ class TimeTrackerProvider with ChangeNotifier {
   List<TaskItem> get tasks => _tasks;
   List<TimeEntry> get entries => _entries;
 
-  TimeTrackerProvider() {
+  TimeEntryProvider() {
     _loadData();
   }
 

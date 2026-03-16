@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:collection/collection.dart';
 import 'package:intl/intl.dart';
-import '../provider/time_tracker_provider.dart';
-import 'add_time_screen.dart';
+import '../provider/time_entry_provider.dart';
+import 'add_time_entry_screen.dart';
 import 'settings_screen.dart';
 import '../models/time_entry.dart';
 import '../dialogs/confirm_delete_dialog.dart';
@@ -37,7 +37,7 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       ),
-      body: Consumer<TimeTrackerProvider>(
+      body: Consumer<TimeEntryProvider>(
         builder: (context, provider, child) {
           if (provider.entries.isEmpty) {
             return const Center(child: Text('No time entries yet.'));
@@ -111,7 +111,7 @@ class HomeScreen extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (_) => const AddTimeScreen()),
+            MaterialPageRoute(builder: (_) => const AddTimeEntryScreen()),
           );
         },
       ),

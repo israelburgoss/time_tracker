@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:localstorage/localstorage.dart';
 
-import 'provider/time_tracker_provider.dart';
+import 'provider/time_entry_provider.dart';
 import 'screens/home_screen.dart';
 
 Future<void> main() async {
@@ -18,7 +18,7 @@ class TimeTrackerApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => TimeTrackerProvider()),
+        ChangeNotifierProvider(create: (_) => TimeEntryProvider()),
       ],
       child: MaterialApp(
         title: 'Time Tracker',
